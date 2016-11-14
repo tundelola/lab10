@@ -36,11 +36,16 @@ namespace MovieLists
                 Category = value;
             }
         }
+
+        
+
         //Makes a class constructor for the field
         public Movie(string title, string category)
         {
             this.Title = title;
             this.Category = category;
         }
+
+        
     }
 }

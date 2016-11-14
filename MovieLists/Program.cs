@@ -11,34 +11,52 @@ namespace MovieLists
     {
         static void Main(string[] args)
         {
-            ArrayList MovieL = new ArrayList();
-            MovieL.Add(new Movie("Citizen Kane", "drama"));
-            MovieL.Add(new Movie("Casablanca", "drama"));
-            MovieL.Add(new Movie("The Godfather", "drama"));
-            MovieL.Add(new Movie("Gone With The Wind", "drama"));
 
-            MovieL.Add(new Movie("Snow White And The Seven Dwarfs", "animated"));
-            MovieL.Add(new Movie("Fantasia", "animated"));
+            Boolean response = true;
+            while (true)
+            {
+                Console.WriteLine("Welcome to the Movie List application");
 
-            MovieL.Add(new Movie("King Kong", "horror"));
-            MovieL.Add(new Movie("Jaws", "horror"));
+                Console.WriteLine("There are 100 movies in this list,\n\nPlease What category are you interested in?,\n\nanimated, scifi, drama, musical or comedy");
+                string category = Console.ReadLine();
+                if (category != null)
+                {
+                    Console.WriteLine("\nMovie is in this category\n");
+                    search(category);
+                    Console.WriteLine("Do you want to continue?(y/n)");// validates more input sentence from the user
+                    string userRes = Console.ReadLine();
+                    if (userRes == "Y" || userRes == "y")
+                    {
+                        response = true;
 
-            MovieL.Add(new Movie("A Clockwork Orange", "scifi"));
-            MovieL.Add(new Movie("Close Encounters Of The Third Kind", "scifi"));
+                    }
+                    else
+                    {
 
+                        response = false;
+                        break;
+                    }
+
+                }
+
+            }
 
         }
-        public void Search(ArrayList MovieLis, string category)
+
+
+
+        public static void search(string category)
         {
 
-            for (int i = 0; i < MovieLis.Count; i++)
+            for (int i = 0; i < 100; i++)
             {
-                if (MovieLis[i].category == category)
-                {
-                    Console.WriteLine("I found the Movie {0} ", MovieLis[i].title);
 
+                if (Movies.getMovie(i).CATEGORY == category)
+                {
+                    Console.WriteLine(Movies.getMovie(i).TITLE);
                 }
             }
         }
     }
 }
+
